@@ -1,0 +1,10 @@
+{
+  "database": {
+    "host": "localhost",
+    "port": 27017,
+    "name": "liveposts-api"
+  },
+  "ENV": {
+    "port": 1000
+  }
+}
