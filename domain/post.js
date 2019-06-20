@@ -30,7 +30,6 @@ module.exports.readById = async id => await PostModel.findOne({ _id: id });
 
 module.exports.update = async (id, vote) => {
   const post = await this.readById(id)
-  console.log(vote, post)
   await PostModel.update({ _id: id }, { $set: { "votes": post.votes + vote } });
-
+  io.emit('newVote', { id: post._id, votes: post.votes + vote })
 }
