@@ -17,10 +17,10 @@ module.exports.create = async post => {
 module.exports.read = async (page, perPage) => {
   try {
     const posts = await PostModel.find({})
-      .skip(perPage * page - perPage)
-      .limit(parseInt(perPage));
+    //.skip(perPage * page - perPage)
+    //.limit(parseInt(perPage));
 
-    const count = await PostModel.count();
+    const count = await PostModel.countDocuments();
 
     return { posts, count };
   } catch { }
