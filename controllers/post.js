@@ -46,3 +46,14 @@ module.exports.update = async (req, res, next) => {
   }
   next();
 };
+
+module.exports.del = async (req, res, next) => {
+  try {
+    const post = await postDomain.del(req.params.id)
+    res.send({ post })
+  } catch (err) {
+    res.status(500)
+    res.send({ message: err.message })
+  }
+  next()
+}

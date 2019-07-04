@@ -33,3 +33,5 @@ module.exports.update = async (id, vote) => {
   await PostModel.update({ _id: id }, { $set: { "votes": post.votes + vote } });
   io.emit('newVote', { id: post._id, votes: post.votes + vote })
 }
+
+module.exports.del = async id => await CreditModel.findByIdAndRemove({ _id: id })
