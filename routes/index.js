@@ -1,4 +1,5 @@
 const posts = require("./post");
+const task = require("./task");
 
 module.exports.assignRoutes = server => {
   server.get("/", (req, res, next) => {
@@ -8,4 +9,5 @@ module.exports.assignRoutes = server => {
   });
 
   posts(server);
+  task(server)
 };
